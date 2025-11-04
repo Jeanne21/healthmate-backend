@@ -33,19 +33,23 @@ It enables users to track medications, appointments, and health measurements suc
 
 ## 📂 Project Structure
 
+```
 HealthMate-backend/
 ├── app/
-│ ├── main.py # Entry point
-│ ├── routers/ # API route definitions
-│ ├── models/ # Pydantic models
-│ ├── utils/ # Helper and processing utilities
-│ └── firebase_client.py # Firestore client setup
-├── requirements.txt # Project dependencies
-├── Procfile # Render startup command
+│   ├── main.py                # Entry point
+│   ├── routers/               # API route definitions
+│   ├── models/                # Pydantic models
+│   ├── utils/                 # Helper and processing utilities
+│   └── firebase_client.py     # Firestore client setup
+├── requirements.txt           # Project dependencies
+├── Procfile                   # Render startup command
 ├── .gitignore
 └── README.md
 
-> 📝 Note: Machine learning scripts and training data are excluded from this deployment version.
+```
+
+> 📝 **Note:** Machine learning scripts and training data are excluded from this deployment version.
+
 
 ---
 
@@ -85,41 +89,44 @@ uvicorn app.main:app --reload
 
 ## ☁️ Deployment on Render
 
-Push your code to GitHub.
+1. Push your code to **GitHub**.
+2. Go to [https://render.com](https://render.com) and log in with your GitHub account.
+3. Click **“New +” → “Web Service”**.
+4. Connect your repository and use the following settings:
 
-Go to https://render.com
- and log in with GitHub.
+| **Setting** | **Value** |
+|--------------|-----------|
+| **Build Command** | `pip install -r requirements.txt` |
+| **Start Command** | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
+| **Environment** | Python 3.12 |
 
-Click “New +” → “Web Service”.
+5. Click **Deploy**.
 
-Connect your repository and use the following settings:
+Once deployed, visit your documentation at:<br>
+👉 **[https://healthmate-backend.onrender.com/docs](https://healthmate-backend.onrender.com/docs)**
 
-Setting	Value
-Build Command	pip install -r requirements.txt
-Start Command	uvicorn app.main:app --host 0.0.0.0 --port $PORT
-Environment	Python 3.12
+---
 
-Click Deploy
-
-Once deployed, visit:
-👉 https://healthmate-backend.onrender.com/docs
-
-🔧 Environment Variables
+### 🔧 Environment Variables
 
 Make sure to set the following environment variables (locally or on Render):
 
-Variable	Description
-FIREBASE_PROJECT_ID	Your Firebase project ID
-FIREBASE_PRIVATE_KEY	Your Firebase service account private key
-FIREBASE_CLIENT_EMAIL	Firebase client email
-FIREBASE_DATABASE_URL	Firestore database URL
+| **Variable** | **Description** |
+|---------------|----------------|
+| `FIREBASE_PROJECT_ID` | Your Firebase project ID |
+| `FIREBASE_PRIVATE_KEY` | Your Firebase service account private key |
+| `FIREBASE_CLIENT_EMAIL` | Firebase client email |
+| `FIREBASE_DATABASE_URL` | Firestore database URL |
 
-These can be stored in a .env file locally (never commit it).
+> 💡 These can be stored in a `.env` file locally (never commit it to GitHub).
 
-🔒 CORS Configuration
+---
+
+### 🔒 CORS Configuration
 
 CORS is configured to support both local development and mobile testing environments:
 
+```python
 origins = [
     "http://localhost",
     "http://localhost:3000",
@@ -127,31 +134,34 @@ origins = [
     "http://localhost:19006",  # React Native Expo default
     "*"  # For development purposes - restrict in production
 ]
+````
 
+Later, replace `"*"` with your live frontend domain for better security.
 
-Later, replace "*" with your live frontend domain for security.
+---
 
-🧩 Next Steps
+### 🧩 Next Steps
 
-Integrate Flutter frontend with the live backend API
+* Integrate Flutter frontend with the live backend API
+* Connect OCR and predictive AI modules
+* Add automated deployment workflows and monitoring
 
-Connect OCR and predictive AI modules
+---
 
-Add automated deployment workflows and monitoring
+### 🧑‍💻 Author
 
-🧑‍💻 Author
-
-Jeanne Wanjiru
+**Jeanne Wanjiru**
 👩🏽‍💻 Software Developer | Founder of HealthMate MVP
 🌍 Based in Kenya
-📧 [Add your contact or portfolio link if desired]
 
-📜 License
+---
 
-This project is licensed under the MIT License.
+### 📜 License
+
+This project is licensed under the **MIT License**.
 Feel free to use, modify, and share with attribution.
 
-“Empowering rural healthcare through technology and intelligent assistance.” 💙
+> *“Empowering rural healthcare through technology and intelligent assistance.” 💙*
 
 ---
 
