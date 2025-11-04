@@ -3,9 +3,9 @@
 from datetime import datetime, timedelta
 from typing import Optional
 from jose import jwt
-from app.config import Settings
+from config import Settings
 from firebase_admin import auth as firebase_admin_auth
-from app.firebase_client import FirebaseClient
+from firebase_client import FirebaseClient
 import requests  # Added for REST API request
 
 class AuthService:

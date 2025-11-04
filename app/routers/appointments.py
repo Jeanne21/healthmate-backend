@@ -1,11 +1,11 @@
 # app/routers/appointments.py
 from fastapi import APIRouter, Depends, HTTPException, status
-from app.models.appointment import AppointmentCreate, AppointmentUpdate, AppointmentResponse
+from models.appointment import AppointmentCreate, AppointmentUpdate, AppointmentResponse
 from typing import List
 from datetime import datetime
-from app.routers.auth import get_current_user
-from app.firebase_client import FirebaseClient
-from app.services.notification_service import NotificationService
+from routers.auth import get_current_user
+from firebase_client import FirebaseClient
+from services.notification_service import NotificationService
 import logging
 
 router = APIRouter()

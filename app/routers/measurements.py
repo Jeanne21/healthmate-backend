@@ -6,11 +6,11 @@ from datetime import datetime, timedelta, timezone
 import io
 import traceback
 
-from app.routers.auth import get_current_user
-from app.firebase_client import FirebaseClient
-from app.models.measurement import MeasurementBase, MeasurementCreate, MeasurementResponse, MeasurementDB
-from app.utils.ocr_processor import OCRProcessor
-from app.anomaly_predictor_tf import load_model, predict_anomaly
+from routers.auth import get_current_user
+from firebase_client import FirebaseClient
+from models.measurement import MeasurementBase, MeasurementCreate, MeasurementResponse, MeasurementDB
+from utils.ocr_processor import OCRProcessor
+from anomaly_predictor_tf import load_model, predict_anomaly
 
 router = APIRouter()
 firebase_client = FirebaseClient()

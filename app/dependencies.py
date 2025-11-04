@@ -2,7 +2,7 @@
 from fastapi import Depends, HTTPException, status, Header
 from typing import Optional
 import logging
-from app.firebase_client import FirebaseClient
+from firebase_client import FirebaseClient
 
 logger = logging.getLogger(__name__)
 firebase_client = FirebaseClient()

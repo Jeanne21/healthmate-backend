@@ -4,7 +4,7 @@ from firebase_admin import messaging
 from datetime import datetime, timedelta
 import json
 import logging
-from app.config import Settings
+from config import Settings
 
 logger = logging.getLogger(__name__)
 

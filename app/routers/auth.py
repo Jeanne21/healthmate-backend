@@ -5,9 +5,9 @@ from pydantic import BaseModel, Field, EmailStr
 from typing import Optional
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
-from app.config import Settings
-from app.services.auth_service import AuthService
-from app.firebase_client import FirebaseClient
+from config import Settings
+from services.auth_service import AuthService
+from firebase_client import FirebaseClient
 
 router = APIRouter()
 settings = Settings()

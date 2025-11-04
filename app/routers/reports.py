@@ -4,8 +4,8 @@ from fastapi.responses import StreamingResponse
 from enum import Enum
 from typing import Optional
 import logging
-from app.firebase_client import FirebaseClient
-from app.routers.auth import get_current_user
+from firebase_client import FirebaseClient
+from routers.auth import get_current_user
 import traceback
 
 # Import our PDF report generator 

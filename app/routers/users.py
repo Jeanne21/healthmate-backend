@@ -3,9 +3,9 @@ from fastapi import APIRouter, Depends, HTTPException, status, Path
 from typing import Dict, Any
 from datetime import datetime
 
-from app.routers.auth import get_current_user
-from app.firebase_client import FirebaseClient
-from app.models.user import UserUpdate, UserResponse, FCMTokenUpdate, EmergencyContactUpdate , DependentsUpdate
+from routers.auth import get_current_user
+from firebase_client import FirebaseClient
+from models.user import UserUpdate, UserResponse, FCMTokenUpdate, EmergencyContactUpdate , DependentsUpdate
 
 router = APIRouter()
 firebase_client = FirebaseClient()

@@ -1,8 +1,8 @@
 # app/main.py
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import users, medications, appointments, measurements, auth, reports
-from app.config import Settings
+from routers import users, medications, appointments, measurements, auth, reports
+from config import Settings
 from dotenv import load_dotenv
 import os
 import logging
