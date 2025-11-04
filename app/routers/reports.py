@@ -9,7 +9,7 @@ from routers.auth import get_current_user
 import traceback
 
 # Import our PDF report generator 
-from app.report_generator import ReportGenerator
+from report_generator import ReportGenerator
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
