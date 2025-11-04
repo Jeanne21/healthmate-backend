@@ -8,7 +8,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.units import inch
 import logging
 
-from app.firebase_client import FirebaseClient
+from firebase_client import FirebaseClient
 
 logger = logging.getLogger(__name__)
 
