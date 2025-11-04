@@ -10,15 +10,15 @@ from routers.auth import get_current_user
 from firebase_client import FirebaseClient
 from models.measurement import MeasurementBase, MeasurementCreate, MeasurementResponse, MeasurementDB
 from utils.ocr_processor import OCRProcessor
-from anomaly_predictor_tf import load_model, predict_anomaly
+#from anomaly_predictor_tf import load_model, predict_anomaly
 
 router = APIRouter()
 firebase_client = FirebaseClient()
 ocr_processor = OCRProcessor()
 
 # Load both models once at startup
-bp_model = load_model("models/bp_model_tf.h5")
-diabetes_model = load_model("models/diabetes_model_tf.h5")
+# bp_model = load_model("models/bp_model_tf.h5")
+# diabetes_model = load_model("models/diabetes_model_tf.h5")
 
 class MeasurementInput(BaseModel):
     user_id: str
@@ -127,20 +127,20 @@ async def create_measurement(
         # measurement_dict = measurement.dict()
 
         # Predict anomaly using model
-        if measurement.type == "blood_pressure":
-            is_anomaly, msg = predict_anomaly(user_profile, measurement, bp_model, "blood_pressure")
+        # if measurement.type == "blood_pressure":
+        #     is_anomaly, msg = predict_anomaly(user_profile, measurement, bp_model, "blood_pressure")
 
-        elif measurement.type == "blood_sugar":
-            is_anomaly, msg = predict_anomaly(user_profile, measurement, diabetes_model, "diabetes")
+        # elif measurement.type == "blood_sugar":
+        #     is_anomaly, msg = predict_anomaly(user_profile, measurement, diabetes_model, "diabetes")
         
-        else:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Unsupported measurement type: {measurement.type}"
-            )
+        # else:
+        #     raise HTTPException(
+        #         status_code=status.HTTP_400_BAD_REQUEST,
+        #         detail=f"Unsupported measurement type: {measurement.type}"
+        #     )
 
         # Add status field to measurement data
-        measurement.status = "anomaly" if is_anomaly else "normal"
+        # measurement.status = "anomaly" if is_anomaly else "normal"
         
         # Convert to DB format and store
         measurement_data = MeasurementDB.to_db_format(measurement, current_user['id'])
