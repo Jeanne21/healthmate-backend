@@ -12,3 +12,10 @@ pytz==2023.3
 pytest==7.3.1
 httpx==0.24.1
 pydantic-settings==2.1.0
+
+# --- OCR dependencies ---
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+pytesseract==0.3.10
+Pillow==10.3.0
+

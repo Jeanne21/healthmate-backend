@@ -17,7 +17,6 @@ __pycache__/
 Thumbs.db
 
 # Ignore model training and prediction code
-app/utils/
 data/
 /models/
 tests/
