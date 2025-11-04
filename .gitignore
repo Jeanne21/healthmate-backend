@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+.env
+
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore model training and prediction code
+app/utils/
+data/
+/models/
+tests/
+
+# Explicitly include app/models
+!app/models/
+
+# Firebase credentials
+service-account.json
