@@ -1,4 +1,4 @@
-import tensorflow as tf
+# import tensorflow as tf
 
-print(tf.__version__)
-print(tf.keras.models.Sequential)
+# print(tf.__version__)
+# print(tf.keras.models.Sequential)
